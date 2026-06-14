@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="shackle" x1="354" y1="154" x2="670" y2="524" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.90"/>
+      <stop offset="0.62" stop-color="#DDFBFF" stop-opacity="0.54"/>
+      <stop offset="1" stop-color="#7ADBE6" stop-opacity="0.42"/>
+    </linearGradient>
+  </defs>
+  <path d="M354 474V353c0-95 69-168 158-168s158 73 158 168v121h-92V353c0-45-28-78-66-78s-66 33-66 78v121Z" fill="url(#shackle)"/>
+  <path d="M354 474V353c0-95 69-168 158-168s158 73 158 168v121" fill="none" stroke="#FFFFFF" stroke-opacity="0.50" stroke-width="18" stroke-linecap="round"/>
+</svg>

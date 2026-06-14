@@ -1,0 +1,95 @@
+{
+  "fill" : {
+    "solid" : "extended-srgb:0.00000,0.76471,0.81569,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "07-sparkles.svg",
+          "name" : "07-sparkles",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              -131.1875,
+              -50.3599999999999
+            ]
+          }
+        },
+        {
+          "image-name" : "04-lock-body.svg",
+          "name" : "04-lock-body",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              98.5390625
+            ]
+          }
+        },
+        {
+          "image-name" : "03-lock-shackle.svg",
+          "name" : "03-lock-shackle",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              38.1400000000001
+            ]
+          }
+        },
+        {
+          "glass" : true,
+          "hidden" : true,
+          "image-name" : "02-back-glass-panel.svg",
+          "name" : "02-back-glass-panel",
+          "position" : {
+            "scale" : 1.23,
+            "translation-in-points" : [
+              0,
+              2.6000000000000227
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.6
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.2
+      }
+    },
+    {
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : "system-dark"
+            }
+          ],
+          "hidden" : false,
+          "image-name" : "01-background-glass.svg",
+          "name" : "01-background-glass"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.6
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.2
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
