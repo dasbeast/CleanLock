@@ -1,6 +1,7 @@
 import ApplicationServices
 import Foundation
 
+// Blocks normal keyboard, pointer, scroll, media-key, and gesture events.
 final class EventTapInputBlocker: InputBlocking {
     private var eventTap: CFMachPort?
     private var runLoopSource: CFRunLoopSource?
@@ -14,6 +15,7 @@ final class EventTapInputBlocker: InputBlocking {
         }
 
         let callback: CGEventTapCallBack = { _, type, event, userInfo in
+            // macOS may disable taps under load; immediately re-enable ours.
             let state = userInfo.map {
                 Unmanaged<EventTapState>
                     .fromOpaque($0)
@@ -54,6 +56,7 @@ final class EventTapInputBlocker: InputBlocking {
     }
 
     func stop() {
+        // Remove the run-loop source so events start flowing normally again.
         if let eventTap {
             CGEvent.tapEnable(tap: eventTap, enable: false)
         }
@@ -84,7 +87,9 @@ final class EventTapInputBlocker: InputBlocking {
         .otherMouseDown,
         .otherMouseUp,
         .otherMouseDragged,
+        // Raw 14 is NX_SYSDEFINED: media, brightness, Mission Control, etc.
         CGEventType(rawValue: 14)!,
+        // Raw 18-32 cover app-level trackpad gestures like rotate/swipe/magnify.
         CGEventType(rawValue: 18)!,
         CGEventType(rawValue: 19)!,
         CGEventType(rawValue: 20)!,

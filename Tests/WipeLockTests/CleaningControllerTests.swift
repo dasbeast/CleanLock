@@ -13,6 +13,7 @@ final class CleaningControllerTests: XCTestCase {
     private var controller: CleaningController!
 
     override func setUp() async throws {
+        // Use fakes so tests never touch real Accessibility, timers, or HID devices.
         accessibility = FakeAccessibilityPermissionProvider()
         clock = FakeClock(now: Date(timeIntervalSinceReferenceDate: 1_000))
         timerScheduler = FakeTimerScheduler()

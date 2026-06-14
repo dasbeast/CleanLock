@@ -2,6 +2,7 @@ import AppKit
 import ApplicationServices
 import Foundation
 
+// Small protocols keep macOS side effects replaceable in unit tests.
 protocol AccessibilityPermissionProviding {
     var isTrusted: Bool { get }
     func requestAccess() -> Bool
@@ -38,6 +39,7 @@ protocol CleaningTimerScheduling {
 
 final class FoundationCleaningTimerScheduler: CleaningTimerScheduling {
     func scheduleRepeating(every interval: TimeInterval, action: @escaping @MainActor () -> Void) -> CleaningTimer {
+        // Timers fire on the run loop, then hop back to the main actor for UI state.
         let timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
             DispatchQueue.main.async {
                 action()
@@ -64,6 +66,7 @@ protocol InputBlocking {
     func stop()
 }
 
+// Gesture changes are best-effort and do not need to report success to the UI.
 protocol GestureBlocking {
     func start()
     func stop()

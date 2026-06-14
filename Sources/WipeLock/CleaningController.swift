@@ -3,6 +3,7 @@ import Foundation
 
 @MainActor
 final class CleaningController: ObservableObject {
+    // The controller moves idle -> arming -> locked, then back to idle.
     enum Phase {
         case idle
         case arming
@@ -30,6 +31,7 @@ final class CleaningController: ObservableObject {
     private let soundPlayer: AlertSoundPlaying
 
     convenience init() {
+        // If the app previously quit mid-session, restore saved gesture settings.
         TrackpadGestureBlocker.recoverIfNeeded()
         self.init(
             accessibility: SystemAccessibilityPermissionProvider(),
@@ -111,6 +113,7 @@ final class CleaningController: ObservableObject {
         refreshAccessibilityStatus()
 
         guard accessibilityTrusted, phase == .idle else {
+            // Clicking Start without permission should prompt instead of arming.
             requestAccessibilityAccess()
             return
         }
@@ -151,6 +154,7 @@ final class CleaningController: ObservableObject {
     }
 
     private func beginLockedMode() {
+        // The event tap is the required blocker. Other blockers are additive.
         guard eventBlocker.start() else {
             lockFailureMessage = "WipeLock could not start the keyboard blocker. Check Accessibility permission, then try again."
             stop(clearFailureMessage: false)
@@ -158,6 +162,7 @@ final class CleaningController: ObservableObject {
         }
 
         gestureBlocker.start()
+        // Seizing the trackpad can fail on some Macs, so locked mode still continues.
         _ = trackpadBlocker.start()
 
         phase = .locked

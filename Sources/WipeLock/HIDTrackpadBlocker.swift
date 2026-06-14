@@ -1,6 +1,7 @@
 import Foundation
 import IOKit.hid
 
+// Attempts to seize the raw trackpad HID device so touch data is not delivered.
 final class HIDTrackpadBlocker: InputBlocking {
     private var manager: IOHIDManager?
 
@@ -11,6 +12,7 @@ final class HIDTrackpadBlocker: InputBlocking {
         IOHIDManagerSetDeviceMatchingMultiple(newManager, Self.matchingDictionaries as CFArray)
         IOHIDManagerScheduleWithRunLoop(newManager, CFRunLoopGetMain(), CFRunLoopMode.commonModes.rawValue)
 
+        // kIOHIDOptionsTypeSeizeDevice asks the system for exclusive access.
         let result = IOHIDManagerOpen(newManager, IOOptionBits(kIOHIDOptionsTypeSeizeDevice))
         guard result == kIOReturnSuccess else {
             IOHIDManagerUnscheduleFromRunLoop(newManager, CFRunLoopGetMain(), CFRunLoopMode.commonModes.rawValue)
@@ -39,10 +41,12 @@ final class HIDTrackpadBlocker: InputBlocking {
 
     private static let matchingDictionaries: [[String: Int]] = [
         [
+            // Generic built-in and external touchpads.
             kIOHIDDeviceUsagePageKey: Int(kHIDPage_Digitizer),
             kIOHIDDeviceUsageKey: Int(kHIDUsage_Dig_TouchPad)
         ],
         [
+            // Apple internal trackpads can expose gestures through this vendor device.
             kIOHIDDeviceUsagePageKey: 0xFF00,
             kIOHIDDeviceUsageKey: 0x0B
         ]

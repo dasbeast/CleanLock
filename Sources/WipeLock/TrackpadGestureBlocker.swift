@@ -1,6 +1,7 @@
 import Foundation
 import IOKit.hid
 
+// Temporarily disables common macOS trackpad gesture preferences and HID properties.
 final class TrackpadGestureBlocker: GestureBlocking {
     private struct PreferenceSnapshot {
         let domain: CFString
@@ -29,6 +30,7 @@ final class TrackpadGestureBlocker: GestureBlocking {
     private static let snapshotDefaultsKey = "WipeLock.GesturePreferenceSnapshot"
 
     static func recoverIfNeeded() {
+        // Restore settings if the app was force-quit before stop() could run.
         guard let entries = UserDefaults.standard.array(forKey: snapshotDefaultsKey) as? [[String: Any]] else {
             return
         }
@@ -49,6 +51,7 @@ final class TrackpadGestureBlocker: GestureBlocking {
     }
 
     private func persistSnapshot() {
+        // Save enough state to put missing and existing preference keys back.
         let entries: [[String: Any]] = preferenceSnapshots.map { snapshot in
             var existing: [String: Any] = [:]
             var missing: [String] = []
@@ -69,6 +72,7 @@ final class TrackpadGestureBlocker: GestureBlocking {
     }
 
     private func saveAndDisablePreferenceDomains() {
+        // Preference domains control Spaces, Mission Control, pinch, rotate, etc.
         preferenceSnapshots = Self.preferenceDomains.map { domain in
             let existingValues = Dictionary(uniqueKeysWithValues: Self.disabledGestureValues.keys.map { key in
                 let value = CFPreferencesCopyAppValue(key as CFString, domain)
@@ -102,6 +106,7 @@ final class TrackpadGestureBlocker: GestureBlocking {
     }
 
     private func saveAndDisableLiveHIDServices() {
+        // Update live services so the change applies during the current session.
         let client = IOHIDEventSystemClientCreateSimpleClient(kCFAllocatorDefault)
         guard let services = IOHIDEventSystemClientCopyServices(client) as? [IOHIDServiceClient] else {
             return
@@ -134,6 +139,7 @@ final class TrackpadGestureBlocker: GestureBlocking {
         guard !serviceSnapshots.isEmpty else { return }
         defer { serviceSnapshots = [] }
 
+        // Fresh service references are more reliable after a long cleaning session.
         let client = IOHIDEventSystemClientCreateSimpleClient(kCFAllocatorDefault)
         let currentServices = (IOHIDEventSystemClientCopyServices(client) as? [IOHIDServiceClient]) ?? []
         let gestureKeys = Set(Self.disabledGestureValues.keys)
