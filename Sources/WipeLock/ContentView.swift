@@ -21,7 +21,9 @@ struct ContentView: View {
 
             controls
 
-            permissionRow
+            if controller.shouldShowPermissionHint {
+                permissionRow
+            }
         }
         .padding(28)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -124,19 +126,12 @@ struct ContentView: View {
                 .fill(controller.accessibilityTrusted ? Color.green : Color.orange)
                 .frame(width: 9, height: 9)
 
-            Text(controller.accessibilityTrusted ? "Accessibility permission is enabled." : "Accessibility permission is needed before WipeLock can block input.")
+            Text("macOS may ask for Accessibility or Input Monitoring permission when WipeLock starts.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
 
             Spacer(minLength: 4)
-
-            if !controller.accessibilityTrusted {
-                Button("Allow") {
-                    controller.requestAccessibilityAccess()
-                }
-                .buttonStyle(.borderless)
-            }
         }
     }
 

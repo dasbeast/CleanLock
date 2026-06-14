@@ -6,6 +6,7 @@ import Foundation
 protocol AccessibilityPermissionProviding {
     var isTrusted: Bool { get }
     func requestAccess() -> Bool
+    func openSettings()
 }
 
 struct SystemAccessibilityPermissionProvider: AccessibilityPermissionProviding {
@@ -16,6 +17,20 @@ struct SystemAccessibilityPermissionProvider: AccessibilityPermissionProviding {
     func requestAccess() -> Bool {
         let promptKey = kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String
         return AXIsProcessTrustedWithOptions([promptKey: true] as CFDictionary)
+    }
+
+    func openSettings() {
+        let settingsURLs = [
+            "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility",
+            "x-apple.systempreferences:com.apple.preference.security"
+        ]
+
+        for urlString in settingsURLs {
+            guard let url = URL(string: urlString) else { continue }
+            if NSWorkspace.shared.open(url) {
+                break
+            }
+        }
     }
 }
 

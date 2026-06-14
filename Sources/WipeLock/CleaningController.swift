@@ -16,6 +16,7 @@ final class CleaningController: ObservableObject {
     @Published var selectedDuration = 60
     @Published var secondsRemaining = 0
     @Published var accessibilityTrusted = false
+    @Published var inputBlockingTrusted = false
     @Published var lockFailureMessage: String?
 
     private var timer: CleaningTimer?
@@ -63,11 +64,15 @@ final class CleaningController: ObservableObject {
     }
 
     var canStart: Bool {
-        phase == .idle && accessibilityTrusted
+        phase == .idle
     }
 
     var primaryButtonTitle: String {
-        accessibilityTrusted ? "Start Cleaning Mode" : "Permission Needed"
+        isReadyToBlockInput ? "Start Cleaning Mode" : "Allow Input Blocking"
+    }
+
+    var shouldShowPermissionHint: Bool {
+        !isReadyToBlockInput
     }
 
     var statusTitle: String {
@@ -103,19 +108,30 @@ final class CleaningController: ObservableObject {
 
     func refreshAccessibilityStatus() {
         accessibilityTrusted = accessibility.isTrusted
+        if accessibilityTrusted {
+            inputBlockingTrusted = true
+        }
     }
 
     func requestAccessibilityAccess() {
         accessibilityTrusted = accessibility.requestAccess()
+        if accessibilityTrusted {
+            inputBlockingTrusted = true
+        } else {
+            accessibility.openSettings()
+        }
     }
 
     func start() {
         refreshAccessibilityStatus()
 
-        guard accessibilityTrusted, phase == .idle else {
-            // Clicking Start without permission should prompt instead of arming.
-            requestAccessibilityAccess()
+        guard phase == .idle else {
             return
+        }
+
+        if !accessibilityTrusted {
+            // Creating the event tap later can trigger Input Monitoring on newer macOS.
+            requestAccessibilityAccess()
         }
 
         lockFailureMessage = nil
@@ -156,11 +172,13 @@ final class CleaningController: ObservableObject {
     private func beginLockedMode() {
         // The event tap is the required blocker. Other blockers are additive.
         guard eventBlocker.start() else {
-            lockFailureMessage = "WipeLock could not start the keyboard blocker. Check Accessibility permission, then try again."
+            inputBlockingTrusted = false
+            lockFailureMessage = "WipeLock could not start the input blocker. Grant Accessibility or Input Monitoring permission in System Settings, then try again."
             stop(clearFailureMessage: false)
             return
         }
 
+        inputBlockingTrusted = true
         gestureBlocker.start()
         // Seizing the trackpad can fail on some Macs, so locked mode still continues.
         _ = trackpadBlocker.start()
@@ -188,5 +206,9 @@ final class CleaningController: ObservableObject {
     private func scheduleTimer(_ action: @escaping @MainActor () -> Void) {
         timer?.invalidate()
         timer = timerScheduler.scheduleRepeating(every: 1, action: action)
+    }
+
+    private var isReadyToBlockInput: Bool {
+        accessibilityTrusted || inputBlockingTrusted
     }
 }

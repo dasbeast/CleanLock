@@ -39,25 +39,48 @@ final class CleaningControllerTests: XCTestCase {
     }
 
     func testCanStartRequiresIdleAndAccessibilityPermission() {
-        accessibility.isTrustedValue = true
         controller.refreshAccessibilityStatus()
 
         XCTAssertTrue(controller.canStart)
+        XCTAssertTrue(controller.shouldShowPermissionHint)
+        XCTAssertEqual(controller.primaryButtonTitle, "Allow Input Blocking")
 
         controller.start()
 
         XCTAssertFalse(controller.canStart)
     }
 
-    func testStartWithoutPermissionRequestsAccessAndStaysIdle() {
+    func testAccessibilityTrustHidesPermissionHint() {
+        accessibility.isTrustedValue = true
+
+        controller.refreshAccessibilityStatus()
+
+        XCTAssertTrue(controller.accessibilityTrusted)
+        XCTAssertTrue(controller.inputBlockingTrusted)
+        XCTAssertFalse(controller.shouldShowPermissionHint)
+        XCTAssertEqual(controller.primaryButtonTitle, "Start Cleaning Mode")
+    }
+
+    func testStartWithoutPermissionRequestsAccessAndBeginsArmingCountdown() {
         accessibility.isTrustedValue = false
         accessibility.requestAccessResult = false
 
         controller.start()
 
-        XCTAssertEqual(controller.phase, .idle)
+        XCTAssertEqual(controller.phase, .arming)
         XCTAssertEqual(accessibility.requestAccessCallCount, 1)
-        XCTAssertEqual(timerScheduler.scheduleCallCount, 0)
+        XCTAssertEqual(accessibility.openSettingsCallCount, 1)
+        XCTAssertEqual(timerScheduler.scheduleCallCount, 1)
+    }
+
+    func testRequestPermissionDoesNotOpenSettingsAfterPermissionIsGranted() {
+        accessibility.requestAccessResult = true
+
+        controller.requestAccessibilityAccess()
+
+        XCTAssertTrue(controller.accessibilityTrusted)
+        XCTAssertEqual(accessibility.requestAccessCallCount, 1)
+        XCTAssertEqual(accessibility.openSettingsCallCount, 0)
     }
 
     func testStartWithPermissionBeginsArmingCountdown() {
@@ -81,6 +104,8 @@ final class CleaningControllerTests: XCTestCase {
 
         XCTAssertEqual(controller.phase, .locked)
         XCTAssertEqual(controller.secondsRemaining, 120)
+        XCTAssertTrue(controller.inputBlockingTrusted)
+        XCTAssertFalse(controller.shouldShowPermissionHint)
         XCTAssertTrue(eventBlocker.isStarted)
         XCTAssertTrue(trackpadBlocker.isStarted)
         XCTAssertTrue(gestureBlocker.isStarted)
@@ -99,7 +124,7 @@ final class CleaningControllerTests: XCTestCase {
         XCTAssertEqual(controller.secondsRemaining, 0)
         XCTAssertFalse(trackpadBlocker.isStarted)
         XCTAssertFalse(gestureBlocker.isStarted)
-        XCTAssertEqual(controller.lockFailureMessage, "WipeLock could not start the keyboard blocker. Check Accessibility permission, then try again.")
+        XCTAssertEqual(controller.lockFailureMessage, "WipeLock could not start the input blocker. Grant Accessibility or Input Monitoring permission in System Settings, then try again.")
     }
 
     func testStopClearsBlockersAndFailureMessage() {
@@ -140,6 +165,7 @@ private final class FakeAccessibilityPermissionProvider: AccessibilityPermission
     var isTrustedValue = false
     var requestAccessResult = false
     var requestAccessCallCount = 0
+    var openSettingsCallCount = 0
 
     var isTrusted: Bool {
         isTrustedValue
@@ -149,6 +175,10 @@ private final class FakeAccessibilityPermissionProvider: AccessibilityPermission
         requestAccessCallCount += 1
         isTrustedValue = requestAccessResult
         return requestAccessResult
+    }
+
+    func openSettings() {
+        openSettingsCallCount += 1
     }
 }
 
