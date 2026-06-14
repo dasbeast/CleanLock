@@ -20,6 +20,12 @@ The app bundle is created at:
 open .build/WipeLock.app
 ```
 
+## Test
+
+```sh
+xcodebuild -project WipeLock.xcodeproj -scheme WipeLock -configuration Debug test
+```
+
 ## Xcode
 
 Open the project in Xcode:
