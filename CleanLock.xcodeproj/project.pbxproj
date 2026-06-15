@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D0C907C2C3A4A2600010001 /* app icon lock.icon in Resources */ = {isa = PBXBuildFile; fileRef = 3D0C907A2C3A4A2600010001 /* app icon lock.icon */; };
-		3D0C90812C3A4A2600010001 /* WipeLockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C907D2C3A4A2600010001 /* WipeLockApp.swift */; };
+		3DAA00012C3A0000000A0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA00002C3A0000000A0001 /* Assets.xcassets */; };
+		3D0C90812C3A4A2600010001 /* CleanLockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C907D2C3A4A2600010001 /* CleanLockApp.swift */; };
 		3D0C90822C3A4A2600010001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C907E2C3A4A2600010001 /* ContentView.swift */; };
 		3D0C90832C3A4A2600010001 /* CleaningDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C907F2C3A4A2600010001 /* CleaningDependencies.swift */; };
 		3D0C90842C3A4A2600010001 /* CleaningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C90802C3A4A2600010001 /* CleaningController.swift */; };
@@ -24,25 +25,26 @@
 			containerPortal = 3D0C90572C3A4A2600010001 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3D0C905E2C3A4A2600010001;
-			remoteInfo = WipeLock;
+			remoteInfo = CleanLock;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D0C905F2C3A4A2600010001 /* WipeLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WipeLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D0C905F2C3A4A2600010001 /* CleanLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0C90672C3A4A2600010001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DAA00002C3A0000000A0001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D0C90682C3A4A2600010001 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3D0C90692C3A4A2600010001 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		3D0C90792C3A4A2600010001 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3D0C907A2C3A4A2600010001 /* app icon lock.icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "app icon lock.icon"; sourceTree = "<group>"; };
-		3D0C907D2C3A4A2600010001 /* WipeLockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WipeLockApp.swift; sourceTree = "<group>"; };
+		3D0C907D2C3A4A2600010001 /* CleanLockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanLockApp.swift; sourceTree = "<group>"; };
 		3D0C907E2C3A4A2600010001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3D0C907F2C3A4A2600010001 /* CleaningDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningDependencies.swift; sourceTree = "<group>"; };
 		3D0C90802C3A4A2600010001 /* CleaningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningController.swift; sourceTree = "<group>"; };
 		3D0C90852C3A4A2600010001 /* EventTapInputBlocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapInputBlocker.swift; sourceTree = "<group>"; };
 		3D0C90862C3A4A2600010001 /* HIDTrackpadBlocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIDTrackpadBlocker.swift; sourceTree = "<group>"; };
 		3D0C90872C3A4A2600010001 /* TrackpadGestureBlocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadGestureBlocker.swift; sourceTree = "<group>"; };
-		3D0C908B2C3A4A2600010001 /* WipeLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WipeLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D0C908B2C3A4A2600010001 /* CleanLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0C908F2C3A4A2600010001 /* CleaningControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,8 +82,8 @@
 		3D0C90602C3A4A2600010001 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3D0C905F2C3A4A2600010001 /* WipeLock.app */,
-				3D0C908B2C3A4A2600010001 /* WipeLockTests.xctest */,
+				3D0C905F2C3A4A2600010001 /* CleanLock.app */,
+				3D0C908B2C3A4A2600010001 /* CleanLockTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				3D0C90672C3A4A2600010001 /* Info.plist */,
+				3DAA00002C3A0000000A0001 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -97,7 +100,7 @@
 		3D0C90642C3A4A2600010001 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3D0C908E2C3A4A2600010001 /* WipeLock */,
+				3D0C908E2C3A4A2600010001 /* CleanLock */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -122,15 +125,15 @@
 		3D0C908C2C3A4A2600010001 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3D0C90912C3A4A2600010001 /* WipeLockTests */,
+				3D0C90912C3A4A2600010001 /* CleanLockTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		3D0C908E2C3A4A2600010001 /* WipeLock */ = {
+		3D0C908E2C3A4A2600010001 /* CleanLock */ = {
 			isa = PBXGroup;
 			children = (
-				3D0C907D2C3A4A2600010001 /* WipeLockApp.swift */,
+				3D0C907D2C3A4A2600010001 /* CleanLockApp.swift */,
 				3D0C907E2C3A4A2600010001 /* ContentView.swift */,
 				3D0C907F2C3A4A2600010001 /* CleaningDependencies.swift */,
 				3D0C90802C3A4A2600010001 /* CleaningController.swift */,
@@ -138,23 +141,23 @@
 				3D0C90862C3A4A2600010001 /* HIDTrackpadBlocker.swift */,
 				3D0C90872C3A4A2600010001 /* TrackpadGestureBlocker.swift */,
 			);
-			path = WipeLock;
+			path = CleanLock;
 			sourceTree = "<group>";
 		};
-		3D0C90912C3A4A2600010001 /* WipeLockTests */ = {
+		3D0C90912C3A4A2600010001 /* CleanLockTests */ = {
 			isa = PBXGroup;
 			children = (
 				3D0C908F2C3A4A2600010001 /* CleaningControllerTests.swift */,
 			);
-			path = WipeLockTests;
+			path = CleanLockTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3D0C905E2C3A4A2600010001 /* WipeLock */ = {
+		3D0C905E2C3A4A2600010001 /* CleanLock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D0C906D2C3A4A2600010001 /* Build configuration list for PBXNativeTarget "WipeLock" */;
+			buildConfigurationList = 3D0C906D2C3A4A2600010001 /* Build configuration list for PBXNativeTarget "CleanLock" */;
 			buildPhases = (
 				3D0C905B2C3A4A2600010001 /* Sources */,
 				3D0C905C2C3A4A2600010001 /* Frameworks */,
@@ -164,14 +167,14 @@
 			);
 			dependencies = (
 			);
-			name = WipeLock;
-			productName = WipeLock;
-			productReference = 3D0C905F2C3A4A2600010001 /* WipeLock.app */;
+			name = CleanLock;
+			productName = CleanLock;
+			productReference = 3D0C905F2C3A4A2600010001 /* CleanLock.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3D0C90922C3A4A2600010001 /* WipeLockTests */ = {
+		3D0C90922C3A4A2600010001 /* CleanLockTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D0C90962C3A4A2600010001 /* Build configuration list for PBXNativeTarget "WipeLockTests" */;
+			buildConfigurationList = 3D0C90962C3A4A2600010001 /* Build configuration list for PBXNativeTarget "CleanLockTests" */;
 			buildPhases = (
 				3D0C90932C3A4A2600010001 /* Sources */,
 				3D0C908D2C3A4A2600010001 /* Frameworks */,
@@ -181,9 +184,9 @@
 			dependencies = (
 				3D0C90982C3A4A2600010001 /* PBXTargetDependency */,
 			);
-			name = WipeLockTests;
-			productName = WipeLockTests;
-			productReference = 3D0C908B2C3A4A2600010001 /* WipeLockTests.xctest */;
+			name = CleanLockTests;
+			productName = CleanLockTests;
+			productReference = 3D0C908B2C3A4A2600010001 /* CleanLockTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3D0C905A2C3A4A2600010001 /* Build configuration list for PBXProject "WipeLock" */;
+			buildConfigurationList = 3D0C905A2C3A4A2600010001 /* Build configuration list for PBXProject "CleanLock" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -218,8 +221,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3D0C905E2C3A4A2600010001 /* WipeLock */,
-				3D0C90922C3A4A2600010001 /* WipeLockTests */,
+				3D0C905E2C3A4A2600010001 /* CleanLock */,
+				3D0C90922C3A4A2600010001 /* CleanLockTests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,7 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D0C907C2C3A4A2600010001 /* app icon lock.icon in Resources */,
+				3DAA00012C3A0000000A0001 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D0C90812C3A4A2600010001 /* WipeLockApp.swift in Sources */,
+				3D0C90812C3A4A2600010001 /* CleanLockApp.swift in Sources */,
 				3D0C90822C3A4A2600010001 /* ContentView.swift in Sources */,
 				3D0C90832C3A4A2600010001 /* CleaningDependencies.swift in Sources */,
 				3D0C90842C3A4A2600010001 /* CleaningController.swift in Sources */,
@@ -263,7 +266,7 @@
 /* Begin PBXTargetDependency section */
 		3D0C90982C3A4A2600010001 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D0C905E2C3A4A2600010001 /* WipeLock */;
+			target = 3D0C905E2C3A4A2600010001 /* CleanLock */;
 			targetProxy = 3D0C90972C3A4A2600010001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -393,8 +396,9 @@
 		3D0C906E2C3A4A2600010001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_ENTITLEMENTS = WipeLock.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CleanLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -424,7 +428,7 @@
 					"-framework",
 					IOKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baileykiehl.wipelock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baileykiehl.cleanlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -435,8 +439,9 @@
 		3D0C906F2C3A4A2600010001 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_ENTITLEMENTS = WipeLock.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CleanLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -466,7 +471,7 @@
 					"-framework",
 					IOKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baileykiehl.wipelock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baileykiehl.cleanlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -486,11 +491,11 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = local.baileykiehl.wipelock.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = local.baileykiehl.cleanlock.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WipeLock.app/Contents/MacOS/WipeLock";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanLock.app/Contents/MacOS/CleanLock";
 			};
 			name = Debug;
 		};
@@ -506,18 +511,18 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = local.baileykiehl.wipelock.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = local.baileykiehl.cleanlock.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WipeLock.app/Contents/MacOS/WipeLock";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanLock.app/Contents/MacOS/CleanLock";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3D0C905A2C3A4A2600010001 /* Build configuration list for PBXProject "WipeLock" */ = {
+		3D0C905A2C3A4A2600010001 /* Build configuration list for PBXProject "CleanLock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D0C906A2C3A4A2600010001 /* Debug */,
@@ -526,7 +531,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D0C906D2C3A4A2600010001 /* Build configuration list for PBXNativeTarget "WipeLock" */ = {
+		3D0C906D2C3A4A2600010001 /* Build configuration list for PBXNativeTarget "CleanLock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D0C906E2C3A4A2600010001 /* Debug */,
@@ -535,7 +540,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D0C90962C3A4A2600010001 /* Build configuration list for PBXNativeTarget "WipeLockTests" */ = {
+		3D0C90962C3A4A2600010001 /* Build configuration list for PBXNativeTarget "CleanLockTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D0C90942C3A4A2600010001 /* Debug */,

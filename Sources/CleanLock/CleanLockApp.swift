@@ -20,12 +20,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 @main
-struct WipeLockApp: App {
+struct CleanLockApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var controller = CleaningController()
 
     var body: some Scene {
-        Window("WipeLock", id: "main") {
+        Window("CleanLock", id: "main") {
             ContentView()
                 .environmentObject(controller)
                 .frame(minWidth: 380)

@@ -27,7 +27,7 @@ final class TrackpadGestureBlocker: GestureBlocking {
         restorePreferenceDomains()
     }
 
-    private static let snapshotDefaultsKey = "WipeLock.GesturePreferenceSnapshot"
+    private static let snapshotDefaultsKey = "CleanLock.GesturePreferenceSnapshot"
 
     static func recoverIfNeeded() {
         // Restore settings if the app was force-quit before stop() could run.

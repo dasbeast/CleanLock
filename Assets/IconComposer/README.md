@@ -1,4 +1,4 @@
-# WipeLock Icon Composer Layers
+# CleanLock Icon Composer Layers
 
 Import these SVG files into Icon Composer in numeric order, back to front:
 
@@ -15,4 +15,4 @@ Each SVG uses the same `1024 x 1024` viewBox and transparent canvas, so the laye
 
 The design is intentionally simpler than the rendered liquid-glass PNG. Use Icon Composer depth/material controls for the glass feel instead of baking too much texture into the art.
 
-`wipelock-icon-composite.svg` is only a flat preview of the same artwork; use the files in `Layers/` for Icon Composer.
+`cleanlock-icon-composite.svg` is only a flat preview of the same artwork; use the files in `Layers/` for Icon Composer.

@@ -44,7 +44,7 @@ struct ContentView: View {
 
     private var header: some View {
         VStack(spacing: 6) {
-            Text("WipeLock")
+            Text("CleanLock")
                 .font(.system(size: 34, weight: .bold, design: .rounded))
             Text("Pause keyboard, media keys, clicks, scrolling, and trackpad gestures while you clean.")
                 .font(.callout)
@@ -126,7 +126,7 @@ struct ContentView: View {
                 .fill(controller.accessibilityTrusted ? Color.green : Color.orange)
                 .frame(width: 9, height: 9)
 
-            Text("macOS may ask for Accessibility or Input Monitoring permission when WipeLock starts.")
+            Text("macOS may ask for Accessibility or Input Monitoring permission when CleanLock starts.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)

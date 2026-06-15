@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D0C905E2C3A4A2600010001"
-               BuildableName = "WipeLock.app"
-               BlueprintName = "WipeLock"
-               ReferencedContainer = "container:WipeLock.xcodeproj">
+               BuildableName = "CleanLock.app"
+               BlueprintName = "CleanLock"
+               ReferencedContainer = "container:CleanLock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D0C90922C3A4A2600010001"
-               BuildableName = "WipeLockTests.xctest"
-               BlueprintName = "WipeLockTests"
-               ReferencedContainer = "container:WipeLock.xcodeproj">
+               BuildableName = "CleanLockTests.xctest"
+               BlueprintName = "CleanLockTests"
+               ReferencedContainer = "container:CleanLock.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3D0C905E2C3A4A2600010001"
-            BuildableName = "WipeLock.app"
-            BlueprintName = "WipeLock"
-            ReferencedContainer = "container:WipeLock.xcodeproj">
+            BuildableName = "CleanLock.app"
+            BlueprintName = "CleanLock"
+            ReferencedContainer = "container:CleanLock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -74,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3D0C905E2C3A4A2600010001"
-            BuildableName = "WipeLock.app"
-            BlueprintName = "WipeLock"
-            ReferencedContainer = "container:WipeLock.xcodeproj">
+            BuildableName = "CleanLock.app"
+            BlueprintName = "CleanLock"
+            ReferencedContainer = "container:CleanLock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,5 +1,5 @@
 import XCTest
-@testable import WipeLock
+@testable import CleanLock
 
 @MainActor
 final class CleaningControllerTests: XCTestCase {
@@ -124,7 +124,7 @@ final class CleaningControllerTests: XCTestCase {
         XCTAssertEqual(controller.secondsRemaining, 0)
         XCTAssertFalse(trackpadBlocker.isStarted)
         XCTAssertFalse(gestureBlocker.isStarted)
-        XCTAssertEqual(controller.lockFailureMessage, "WipeLock could not start the input blocker. Grant Accessibility or Input Monitoring permission in System Settings, then try again.")
+        XCTAssertEqual(controller.lockFailureMessage, "CleanLock could not start the input blocker. Grant Accessibility or Input Monitoring permission in System Settings, then try again.")
     }
 
     func testStopClearsBlockersAndFailureMessage() {

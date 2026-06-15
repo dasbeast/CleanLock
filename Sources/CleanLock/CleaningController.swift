@@ -173,7 +173,7 @@ final class CleaningController: ObservableObject {
         // The event tap is the required blocker. Other blockers are additive.
         guard eventBlocker.start() else {
             inputBlockingTrusted = false
-            lockFailureMessage = "WipeLock could not start the input blocker. Grant Accessibility or Input Monitoring permission in System Settings, then try again."
+            lockFailureMessage = "CleanLock could not start the input blocker. Grant Accessibility or Input Monitoring permission in System Settings, then try again."
             stop(clearFailureMessage: false)
             return
         }
